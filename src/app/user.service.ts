@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
-import { IUser } from './user';
+import { IUser } from './model/user';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from '../model/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-users',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  pageTitle = 'Users List';
+  errorMessage = '';
+  users: IUser[] = [];
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe({
+      next: users => {
+        this.users = users;
+      },
+      error: err => this.errorMessage = err
+    })
   }
 
 }
