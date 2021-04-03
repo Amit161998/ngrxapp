@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
 
     this.store.pipe(select(fromUser.getError)).subscribe((err: any) => {
       console.log(err.message)
-      this.errorMessage = err.message
+      this.errorMessage = err.message //this will be displayed when error occurs from store
     }
     )
   }
